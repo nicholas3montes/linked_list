@@ -1,0 +1,14 @@
+<div class="text-center btn btn-light">
+  <h1>Lista</h1>
+
+    <table>
+      <tbody>
+          <% for n in 0..@list.size-1 do %>
+            <tr>
+              <td><%= @list.get(n) %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  <button type="button" class="btn btn-dark"><%= link_to "Inverter", text_invert_path(params[:id]) %>
+</div>

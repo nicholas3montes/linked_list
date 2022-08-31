@@ -4,15 +4,18 @@ describe 'Node', type: :model do
 
   context'Creating node' do
     
-    it 'Node created correctly by passing the element' do
+    it 'list' do
       #Setup
-      element = 8
-
+      data = Date.today
+      another_data = 'pride precedes the fall'
+      
       #Execution
-      a = Node.new(element)
+      node = Node.new(data)
+      another_node = Node.new(another_data)
 
       #Expectations
-      expect(a.element).to eq(element)
+      expect(node.data).to eq(data)
+      expect(another_node.data).to eq(another_data)
     end
   end
 end   
