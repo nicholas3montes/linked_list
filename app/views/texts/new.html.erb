@@ -1,7 +1,22 @@
-<h1>Lista</h1>
-<%= form_for(@text) do |f| %>
-  <%= f.label :text %><br />
-  <%= f.text_field :text %><br />
-  
-  <%= f.submit %>
-<% end %>
+<div class="row">.</div>
+<div class="h-25 d-inline-block">    
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th><div class="text-primary ">Criar Lista</div></th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <%= form_for(@text) do |f| %>
+      <tr>
+        <td><%= f.text_field :text %><br /></td>
+        <td><button type="submit" class="btn btn-dark">Incluir</button></td>
+      </tr>
+      <tr>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    <p class="badge badge-dark">Insira os itens separados por virgulas.</p>
+</div>

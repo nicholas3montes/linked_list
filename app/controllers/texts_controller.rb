@@ -17,17 +17,23 @@ class TextsController < ApplicationController
 
   def text_divider
     @list = ChainList.new
-    @text.text.split(",").each do |word|
-      @list.add(word)
+    if @text.text.include? ","
+      @text.text.split(",").each do |word|
+        @list.add(word)
+      end
+    else
+      @list.add(@text.text)
     end
   end
 
   def text_invert
     @list = ChainList.new
-    @text.text.split(",").each do |word|
-      @list.add(word)
+    if @text.text.include? ","
+      @text.text.split(",").each do |word|
+        @list.add(word)
+      end
+      @list.invert
     end
-    @list.invert
   end
 
   private

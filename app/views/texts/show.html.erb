@@ -1,5 +1,10 @@
-<div class="text-center btn btn-light">
-  <h1>Text</h1>
-  <p><%= @text.text %></p>
-  <button type="button" class="btn btn-dark"><%= link_to "Dividir palavras", text_divider_path(params[:id]) %>
+<div class="row">.</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-fluid">
+    <div class="text-center btn btn-dark">
+      <p><%= @text.text %></p>
+      <button type="button" class="btn btn-dark text-dark"><%= link_to "Criar lista", text_divider_path(params[:id]) %>
+    </div>
+  </div>
 </div>

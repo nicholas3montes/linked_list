@@ -1,14 +1,30 @@
-<h1>Lista</h1>
-
-<div class="text-center btn btn-light">
-  <table>
-    <tbody> 
-        <% for n in 0..@list.size-1 do %>
+<div class="row">.</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-fluid">
+    <div class= "d-flex justify-content-center">
+      <table class="table table-dark table-hover">
+        <thead>
           <tr>
-            <td><%= @list.get(n) %></td>
+            <th><div class="text-primary">Lista</div></th>
           </tr>
-        <% end %>
-    </tbody>
-  </table>
-  <button type="button" class="btn btn-dark"><%= link_to "Novo texto", new_text_path %>
+        </thead>
+        <tbody>
+            <% for n in 0..@list.size-1 do %>
+              <tr>
+                <td><%= @list.get(n) %></td>
+              </tr>
+            <% end %>          
+          <tr>
+            <th><div class="text-primary">Quantidade</div></th>
+          </tr>
+            <td><%=@list.count%></td>
+          <tr>
+            <td><button type="button" class="btn btn-dark "><%= link_to "Nova Lista", new_text_path %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-sm-8"></div>
 </div>

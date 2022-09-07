@@ -64,6 +64,7 @@ class ChainList
     end
     count
   end
+  
   #método remove: remove um item da lista passado por paramêtro 
   def remove(x)
     current = @head
