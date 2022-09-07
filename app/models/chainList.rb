@@ -53,4 +53,35 @@ class ChainList
     end
     aux.data
   end
+
+  def count
+    count = 0 
+    current = @head
+
+    while current != nil do
+      count += 1
+      current = current.next_node
+    end
+    count
+  end
+  #método remove: remove um item da lista passado por paramêtro 
+  def remove(x)
+    current = @head
+    previous = nil
+
+    if x == @head.data
+      @head = @head.next_node
+      @size -= 1
+    else    
+      while current.data != x do
+        previous = current
+        current = current.next_node
+      end
+      previous.next_node = current.next_node
+      @size -= 1
+      if current.next_node == nil
+        @tail = previous
+      end
+    end  
+  end 
 end

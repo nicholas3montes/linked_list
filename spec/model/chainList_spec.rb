@@ -85,6 +85,24 @@ describe 'ChainList', type: :model do
       expect(list.head).to eq(nil)
       expect(list.tail).to eq(nil)
       expect(list.invert).to eq("empty list")
+    end 
+    
+    it 'Dado uma lista com diversos nós adicionados, removo o ultimo e o tail é atualizado!' do
+      #Setup
+      list = ChainList.new
+      list.add("Primeiro")
+      list.add("Segundo")
+      list.add("Terceiro")
+      list.add("Quarto")
+      list.add("Quinto")
+
+      #Execution
+      list.remove("Terceiro")
+      list.remove("Quinto")
+
+      #Expectations
+      expect(list.tail.data).to eq("Quarto")
+      expect(list.count).to eq(3)
     end
   end
 end 
