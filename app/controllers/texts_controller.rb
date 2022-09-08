@@ -1,5 +1,5 @@
 class TextsController < ApplicationController
-  before_action :set_text, only: [:show, :text_invert, :text_divider]
+  before_action :set_text, only: [:text_invert, :text_divider]
 
   def new
     @text = Text.new
@@ -8,8 +8,20 @@ class TextsController < ApplicationController
   def create
     @text = Text.new(text_params)
 
-    if @text.save
-      redirect_to text_path(@text)
+    if @text.save 
+      @list = ChainList.new
+      if @text.text.include?(",")
+        @text.text.split(",").each do |word|
+          @list.add(word)
+        end
+      else
+        @list.add(@text.text)
+      end
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append(:texts, partial: "texts")
+        end
+      end
     else
       render :new
     end
@@ -32,8 +44,10 @@ class TextsController < ApplicationController
       @text.text.split(",").each do |word|
         @list.add(word)
       end
-      @list.invert
+    else
+      @list.add(@text.text)
     end
+    @list.invert
   end
 
   private

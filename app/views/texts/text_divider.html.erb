@@ -10,9 +10,15 @@
           </tr>
         </thead>
         <tbody>
-            <% for n in 0..@list.size-1 do %>
+            <% if @list.count > 1 %>
+              <% for n in 0..@list.size-1 do %>
+                <tr>
+                  <td><%= @list.get(n) %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= @list.get(n) %></td>
+                <td><%= @list.head.data %></td>
               </tr>
             <% end %>
           <tr>
@@ -20,7 +26,7 @@
           </tr>
             <td><%=@list.count%></td>
           <tr>
-            <td><button type="button" class="btn btn-dark "><%= link_to "Inverter", text_invert_path(params[:id]) %></td>
+            <td><button type="button" class="btn btn-dark "><%= link_to "Inverter", text_invert_path(params[:id]), class: "add", remote:true %></td>
           </tr>
         </tbody>
       </table>

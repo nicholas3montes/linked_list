@@ -10,9 +10,15 @@
           </tr>
         </thead>
         <tbody>
-            <% for n in 0..@list.size-1 do %>
+            <% if @list.count > 1 %>
+              <% for n in 0..@list.size-1 do %>
+                <tr>
+                  <td><%= @list.get(n) %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= @list.get(n) %></td>
+                <td><%= @list.head.data %></td>
               </tr>
             <% end %>          
           <tr>

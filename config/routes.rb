@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   
-  get '/text_divider/:id', to: 'texts#text_divider', as: 'text_divider'
-  get '/text_invert/:id', to: 'texts#text_invert', as: 'text_invert'
+  get '/list/:id', to: 'texts#text_divider', as: 'text_divider'
+  get '/list_invert/:id', to: 'texts#text_invert', as: 'text_invert'
 end

@@ -17,6 +17,7 @@ class ChainList
     if @head == nil 
       @head = node 
       @tail = node
+      return @size += 1
     end
     
     @tail.next_node = node
@@ -71,6 +72,9 @@ class ChainList
     previous = nil
 
     if x == @head.data
+      if @head == @tail
+        @tail = @tail.next_node
+      end
       @head = @head.next_node
       @size -= 1
     else    
